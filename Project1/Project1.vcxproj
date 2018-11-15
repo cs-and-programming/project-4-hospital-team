@@ -115,8 +115,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\LearningClasses\LearningClasses\counter.cpp" />
-    <ClCompile Include="..\..\LearningClasses\LearningClasses\LearningClasses.cpp" />
     <ClCompile Include="patient.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>

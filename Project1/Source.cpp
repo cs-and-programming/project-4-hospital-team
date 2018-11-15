@@ -6,6 +6,16 @@ using namespace std;
 string passAttempt, answer;
 string staffPass = "pineapple";
 
+
+enum Name {
+	Shawn,
+	Marcus,
+	Colin,
+	Noah, 
+	TJ, 
+	Krissy,
+};
+
 int main() {
 	cout << "Welcome to the Rowan Mental Institution Hospital App. What would you like to do?" << endl;
 	cout << "Please input the number of your selection." << endl;
@@ -23,7 +33,7 @@ int main() {
 		
 	}
 	else if (answer == "2") {
-		cout << "What would you like to do?"
+		cout << "What would you like to do?";
 	}
 	else {
 		cout << "That is not a valid answer. Please input a valid answer." << endl;

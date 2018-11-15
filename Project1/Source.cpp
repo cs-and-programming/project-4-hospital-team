@@ -23,7 +23,7 @@ int main() {
 		
 	}
 	else if (answer == "2") {
-
+		cout << "What would you like to do?"
 	}
 	else {
 		cout << "That is not a valid answer. Please input a valid answer." << endl;

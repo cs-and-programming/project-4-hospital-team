@@ -22,4 +22,5 @@ int patient::getAge()
 
 patient::~patient()
 {
+
 }

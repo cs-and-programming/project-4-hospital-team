@@ -6,6 +6,8 @@ using namespace std;
 string passAttempt, answer, searchName, output;
 string staffPass = "pineapple";
 
+void listPatients(), listRoomPatients(), displayInformation(output);
+
 //int search(search, output&);
 
 int main() {
@@ -23,17 +25,27 @@ int main() {
 					cout << "What would you like to do?" << endl;
 					cout << "1. List current patients." << endl;
 					cout << "2. Search for specific patient." << endl;
-					cout << "3. " << endl;
+					cout << "3. List Rooms and Patients." << endl;
+					cout << "4. Display patient information." << endl;
+					cout << "5. End Program." << endl;
 					cin >> answer;
 					if (answer == "1") {
-
+						listPatients();
 					}
 					else if (answer == "2") {
 						cout << "Please input the first name of the patient you are looking for." << endl;
 						cin >> searchName;
 						//search(searchName, output&);
+						
 					}
 					else if (answer == "3") {
+						listRoomPatients();
+					}
+					else if (answer == "4") {
+						cout << "Which patient would you like to display information on?" << endl;
+						cin >> searchName;
+						//search(searchName, output&);
+						displayInformation(output);
 						
 					}
 					else {
@@ -55,7 +67,7 @@ int main() {
 				cout << "3. Exit Program." << endl;
 				cin >> answer;
 				if (answer == "1") {
-
+					listPatients();
 				}
 				else if (answer == "2") {
 					cout << "Please input the first name of the patient you are looking for." << endl;
@@ -78,4 +90,17 @@ int main() {
 
 	system("pause");
 	return 0;
+}
+
+
+void listPatients() {
+
+}
+
+void listRoomPatients() {
+
+}
+
+void displayInformation() {
+
 }

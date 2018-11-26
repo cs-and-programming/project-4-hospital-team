@@ -20,7 +20,12 @@ int patient::getAge()
 	return age;
 }
 
+int patient::getroomNum()
+{
+	return roomNum;
+}
+
 patient::~patient()
 {
 
-}
+}		

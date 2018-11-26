@@ -13,6 +13,7 @@ public:
 	patient(string name, int age, int roomNum, float bill, string condition, string bloodType, string currentNurse);
 
 	int getAge();
+	int getroomNum();
 
 	~patient();
 private:

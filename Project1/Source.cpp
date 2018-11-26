@@ -8,6 +8,10 @@ string staffPass = "pineapple";
 
 void listPatients(), listRoomPatients(), displayInformation(output);
 
+string Nurses[6] = {};
+
+patient Marcus = patient("Marcus", 18, 273, Bill, "Testing", AB+, Nurse1);
+
 //int search(search, output&);
 
 int main() {
@@ -70,7 +74,7 @@ int main() {
 					listPatients();
 				}
 				else if (answer == "2") {
-					cout << "Please input the first name of the patient you are looking for." << endl;
+					cout << "Please input the name of the patient you are looking for." << endl;
 					cin >> searchName;
 					//search(searchName, output&);
 				}
@@ -98,7 +102,7 @@ void listPatients() {
 }
 
 void listRoomPatients() {
-
+	
 }
 
 void displayInformation(output) {

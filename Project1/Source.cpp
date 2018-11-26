@@ -55,7 +55,7 @@ int main() {
 				break;
 			}
 			else {
-				cout << "Access Denied" << endl;
+				cout << "Access Denied. Incorrect password." << endl;
 			}
 
 		}
@@ -101,6 +101,6 @@ void listRoomPatients() {
 
 }
 
-void displayInformation() {
+void displayInformation(output) {
 
 }

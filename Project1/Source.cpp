@@ -6,11 +6,20 @@ using namespace std;
 string passAttempt, answer, searchName, output;
 string staffPass = "pineapple";
 
-void listPatients(), listRoomPatients(), displayInformation(output);
+void listPatients(), listRoomPatients(), displayInformation();
+
+int bill();
+
+int billValue;
 
 string Nurses[6] = {};
 
-patient Marcus = patient("Marcus", 18, 273, Bill, "Testing", AB+, Nurse1);
+patient Marcus = patient("Marcus", 18, 101, 999, "Testing", "Bloodtype", 0);
+patient Noah = patient("Noah", 18, 101, 999, "Testing", "Bloodtype", 0);
+patient Colin = patient("Colin", 18, 101, 999, "Testing", "Bloodtype", 0);
+patient TJ = patient("TJ", 18, 101, 999, "Testing", "Bloodtype", 0);
+patient Krissy = patient("Krissy", 18, 101, 999, "Testing", "Bloodtype", 0);
+patient Shawn = patient("Shawn", 18, 101, 999, "Testing", "Bloodtype", 0);
 
 //int search(search, output&);
 
@@ -31,7 +40,7 @@ int main() {
 					cout << "2. Search for specific patient." << endl;
 					cout << "3. List Rooms and Patients." << endl;
 					cout << "4. Display patient information." << endl;
-					cout << "5. End Program." << endl;
+					cout << "5. Exit Program." << endl;
 					cin >> answer;
 					if (answer == "1") {
 						listPatients();
@@ -49,8 +58,10 @@ int main() {
 						cout << "Which patient would you like to display information on?" << endl;
 						cin >> searchName;
 						//search(searchName, output&);
-						displayInformation(output);
-						
+						displayInformation();
+					}
+					else if (answer == "5") {
+						break;
 					}
 					else {
 						cout << "That is not a valid answer. Please input a valid answer." << endl;
@@ -105,6 +116,10 @@ void listRoomPatients() {
 	
 }
 
-void displayInformation(output) {
+void displayInformation() {
 
+}
+
+int bill() {
+	return billValue;
 }

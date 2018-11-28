@@ -4,7 +4,7 @@ patient::patient()
 {
 }
 
-patient::patient(string n, int a, int rN, float b, string c, string bT, string cN)
+patient::patient(string n, int a, int rN, float b, string c, string bT, int cN)
 {
 	name = n;
 	age = a;

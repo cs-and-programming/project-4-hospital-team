@@ -71,6 +71,7 @@ int main() {
 			}
 			else {
 				cout << "Access Denied. Incorrect password." << endl;
+				break;
 			}
 
 		}

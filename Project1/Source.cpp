@@ -10,9 +10,9 @@ void listPatients(), listRoomPatients(), displayInformation();
 
 int bill();
 
-int billValue;
+int billValue, patients;
 
-string Nurses[6] = {};
+string Nurses[3] = {};
 
 patient Marcus = patient("Marcus", 18, 101, 999, "Testing", "Bloodtype", 0);
 patient Noah = patient("Noah", 18, 101, 999, "Testing", "Bloodtype", 0);
@@ -23,15 +23,7 @@ patient Shawn = patient("Shawn", 18, 101, 999, "Testing", "Bloodtype", 0);
 
 //int search(search, output&);
 
-
-enum Name {
-	Shawn,
-	Marcus,
-	Colin,
-	Noah, 
-	TJ, 
-	Krissy,
-};
+patient patientsArray[] = {Marcus,Noah,Colin,TJ,Krissy,Shawn};
 
 int main() {
 	cout << "Welcome to the Rowan Mental Institution Hospital App. What would you like to do?" << endl;
@@ -50,6 +42,7 @@ int main() {
 					cout << "2. Search for specific patient." << endl;
 					cout << "3. List Rooms and Patients." << endl;
 					cout << "4. Display patient information." << endl;
+					cout << "5. Calculate Bill.";
 					cout << "5. Exit Program." << endl;
 					cin >> answer;
 					if (answer == "1") {
@@ -71,6 +64,12 @@ int main() {
 						displayInformation();
 					}
 					else if (answer == "5") {
+						cout << "Which patient would you like to calculate the bill for?" << endl;
+						cin >> searchName;
+						//search(searchName, output&);
+						
+					}
+					else if (answer == "6") {
 						break;
 					}
 					else {
@@ -120,11 +119,15 @@ int main() {
 
 
 void listPatients() {
-
+	for (int i = 0; i < 5; i++) {
+		cout << (i+1) << ". " << (patientsArray[i]).name << endl;
+	}
 }
 
 void listRoomPatients() {
-	
+	for (int i = 0; i < 5; i++) {
+		cout << (i + 1) << ". " << (patientsArray[i]).name << "    Room: " << (patientsArray[i]).getroomNum << endl;
+	}
 }
 
 void displayInformation() {

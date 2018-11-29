@@ -14,7 +14,7 @@ patient::patient(string n, int a, int rN, float b, string c, string bT, int cN)
 	bloodType = bT;
 	condition = c;
 }
-
+//1
 int patient::getAge()
 {
 	return age;

@@ -23,6 +23,16 @@ patient Shawn = patient("Shawn", 18, 101, 999, "Testing", "Bloodtype", 0);
 
 //int search(search, output&);
 
+
+enum Name {
+	Shawn,
+	Marcus,
+	Colin,
+	Noah, 
+	TJ, 
+	Krissy,
+};
+
 int main() {
 	cout << "Welcome to the Rowan Mental Institution Hospital App. What would you like to do?" << endl;
 	cout << "Please input the number of your selection." << endl;

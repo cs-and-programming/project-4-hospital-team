@@ -42,8 +42,8 @@ int main() {
 					cout << "2. Search for specific patient." << endl;
 					cout << "3. List Rooms and Patients." << endl;
 					cout << "4. Display patient information." << endl;
-					cout << "5. Calculate Bill.";
-					cout << "5. Exit Program." << endl;
+					cout << "5. Calculate Bill." << endl;
+					cout << "6. Exit Program." << endl;
 					cin >> answer;
 					if (answer == "1") {
 						listPatients();
@@ -119,14 +119,14 @@ int main() {
 
 
 void listPatients() {
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < 6; i++) {
 		cout << (i+1) << ". " << (patientsArray[i]).name << endl;
 	}
 }
 
 void listRoomPatients() {
-	for (int i = 0; i < 5; i++) {
-		cout << (i + 1) << ". " << (patientsArray[i]).name << "    Room: " << (patientsArray[i]).getroomNum << endl;
+	for (int i = 0; i < 6; i++) {
+		cout << (i+1) << ". " << (patientsArray[i]).name << "    Room: " << (patientsArray[i]).getroomNum() << endl;
 	}
 }
 

@@ -18,13 +18,13 @@ public:
 	float getBill();
 	string getCondition();
 	string getBloodType();
-	//int getCurrentNurse();
-	//void setCurrentNurse();
+	int getCurrentNurse();
+	void setCurrentNurse(int inputInt);
 
 	~patient();
 private:
 	int age, roomNum, currentNurse;
 	float bill;
-	string condition, bloodType, currentDoc;
+	string condition, bloodType;
 };
 

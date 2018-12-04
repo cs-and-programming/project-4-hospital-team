@@ -45,6 +45,16 @@ string patient::getBloodType()
 	return bloodType;
 }
 
+int patient::getCurrentNurse()
+{
+	return currentNurse;
+}
+
+void patient::setCurrentNurse(int inputInt)
+{
+	currentNurse = inputInt;
+}
+
 patient::~patient()
 {
 

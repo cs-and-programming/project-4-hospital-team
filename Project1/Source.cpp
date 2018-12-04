@@ -3,25 +3,24 @@
 
 using namespace std;
 
-string passAttempt, answer, searchName, output;
+string passAttempt, answer, searchName;
 string staffPass = "pineapple";
+int patients = 6, output;
+float billValue;
 
-void listPatients(), listRoomPatients(), displayInformation();
+void listPatients(), listRoomPatients(), displayInformation(), listNurses();
+float bill();
+int search(string searchName, int &output);
 
-int bill();
+enum day {Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday};
+string nurses[3] = {"Jane","John","Doe"};
 
-int billValue, patients;
-
-string Nurses[3] = {};
-
-patient Marcus = patient("Marcus", 18, 101, 999, "Testing", "Bloodtype", 0);
-patient Noah = patient("Noah", 18, 101, 999, "Testing", "Bloodtype", 0);
-patient Colin = patient("Colin", 18, 101, 999, "Testing", "Bloodtype", 0);
-patient TJ = patient("TJ", 18, 101, 999, "Testing", "Bloodtype", 0);
-patient Krissy = patient("Krissy", 18, 101, 999, "Testing", "Bloodtype", 0);
-patient Shawn = patient("Shawn", 18, 101, 999, "Testing", "Bloodtype", 0);
-
-//int search(search, output&);
+patient Marcus = patient("Marcus", 18, 559, 999, "Testing", "AB+", 0);
+patient Noah = patient("Noah", 18, 558, 999, "Testing", "B-", 0);
+patient Colin = patient("Colin", 18, 289, 999, "Testing", "O-", 0);
+patient TJ = patient("TJ", 18, 101, 423, "Testing", "B+", 0);
+patient Krissy = patient("Krissy", 18, 321, 999, "Testing", "A+", 0);
+patient Shawn = patient("Shawn", 18, 127, 999, "Testing", "O+", 0);
 
 patient patientsArray[] = {Marcus,Noah,Colin,TJ,Krissy,Shawn};
 
@@ -43,7 +42,10 @@ int main() {
 					cout << "3. List Rooms and Patients." << endl;
 					cout << "4. Display patient information." << endl;
 					cout << "5. Calculate Bill." << endl;
-					cout << "6. Exit Program." << endl;
+					cout << "6. Edit patient data." << endl;
+					cout << "7. List nurses." << endl;
+					cout << "8. Edit nurses duty roster." << endl;
+					cout << "9. Exit Program." << endl;
 					cin >> answer;
 					if (answer == "1") {
 						listPatients();
@@ -51,8 +53,8 @@ int main() {
 					else if (answer == "2") {
 						cout << "Please input the first name of the patient you are looking for." << endl;
 						cin >> searchName;
-						//search(searchName, output&);
-						
+						search(searchName, output);
+						cout << (patientsArray[output]).name << "'s room number is " << (patientsArray[output]).getroomNum() << endl << endl;
 					}
 					else if (answer == "3") {
 						listRoomPatients();
@@ -60,16 +62,25 @@ int main() {
 					else if (answer == "4") {
 						cout << "Which patient would you like to display information on?" << endl;
 						cin >> searchName;
-						//search(searchName, output&);
+						search(searchName, output);
 						displayInformation();
 					}
 					else if (answer == "5") {
 						cout << "Which patient would you like to calculate the bill for?" << endl;
 						cin >> searchName;
-						//search(searchName, output&);
-						
+						search(searchName, output);
+						cout << (patientsArray[output]).name << "'s room number is " << (patientsArray[output]).getBill(); << endl << endl;
 					}
 					else if (answer == "6") {
+
+					}
+					else if (answer == "7") {
+						listNurses();
+					}
+					else if (answer == "8") {
+
+					}
+					else if (answer == "9") {
 						break;
 					}
 					else {
@@ -95,9 +106,10 @@ int main() {
 					listPatients();
 				}
 				else if (answer == "2") {
-					cout << "Please input the name of the patient you are looking for." << endl;
+					cout << "Please input the first name of the patient you are looking for." << endl;
 					cin >> searchName;
-					//search(searchName, output&);
+					search(searchName, output);
+					cout << (patientsArray[output]).name << "'s room number is " << (patientsArray[output]).getroomNum() << endl << endl;
 				}
 				else if (answer == "3") {
 					break;
@@ -119,21 +131,55 @@ int main() {
 
 
 void listPatients() {
-	for (int i = 0; i < 6; i++) {
+	for (int i = 0; i < patients; i++) {
 		cout << (i+1) << ". " << (patientsArray[i]).name << endl;
 	}
 }
 
+void listNurses() {
+	for (int i = 0; i < 3; i++) {
+		cout << (i + 1) << ". " << (nurses[i]) << endl;
+	}
+}
+
 void listRoomPatients() {
-	for (int i = 0; i < 6; i++) {
+	for (int i = 0; i < patients; i++) {
 		cout << (i+1) << ". " << (patientsArray[i]).name << "    Room: " << (patientsArray[i]).getroomNum() << endl;
 	}
 }
 
 void displayInformation() {
-
+	cout << "Name: " << (patientsArray[output]).name << endl;
+	cout << "Room Number: " << (patientsArray[output]).getroomNum() << endl;
+	cout << "Age: " << (patientsArray[output]).getAge() << endl;
+	cout << "Condition: " << (patientsArray[output]).getCondition() << endl;
+	cout << "BloodType: " << (patientsArray[output]).getBloodType() << endl;
+	if ((patientsArray[output]).getBill() == 999) {
+		cout << "Current Bill: " << "*BILL NOT CALCULATED* Please run calculate bill command." << endl;
+	}
+	else {
+		cout << "Current Bill: " << (patientsArray[output]).getBill() << endl;
+	}
+	cout << endl;
 }
 
-int bill() {
+float bill() {
 	return billValue;
+}
+
+int search(string searchName, int &output) {
+	string attemptName;
+	bool run = true;
+	int attempts = 0;
+    output = 0;
+
+	while ((attempts < patients) && (run = true)) {
+		attemptName = (patientsArray[attempts]).name;
+		if (searchName == attemptName) {
+			output = attempts;
+			run = false;
+		}
+		attempts++;
+	}
+	return output;
 }

@@ -14,6 +14,12 @@ public:
 
 	int getAge();
 	int getroomNum();
+	void setBill(float billValue);
+	float getBill();
+	string getCondition();
+	string getBloodType();
+	//int getCurrentNurse();
+	//void setCurrentNurse();
 
 	~patient();
 private:

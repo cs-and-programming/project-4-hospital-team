@@ -55,6 +55,26 @@ void patient::setCurrentNurse(int inputInt)
 	currentNurse = inputInt;
 }
 
+void patient::setRoomNum(int inputInt)
+{
+	roomNum = inputInt;
+}
+
+void patient::setAge(int inputInt)
+{
+	age = inputInt;
+}
+
+void patient::setCondition(string inputString)
+{
+	condition = inputString;
+}
+
+void patient::setBloodType(string inputString)
+{
+	bloodType = inputString;
+}
+
 patient::~patient()
 {
 

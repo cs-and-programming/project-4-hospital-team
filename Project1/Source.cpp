@@ -3,9 +3,9 @@
 
 using namespace std;
 
-string passAttempt, answer, searchName;
+string passAttempt, answer, answer2, searchName, inputString;
 string staffPass = "pineapple";
-int patients = 6, output;
+int patients = 6, output, inputInt;
 float billValue;
 
 void listPatients(), listRoomPatients(), displayInformation(), listNurses();
@@ -44,8 +44,7 @@ int main() {
 					cout << "5. Calculate Bill." << endl;
 					cout << "6. Edit patient data." << endl;
 					cout << "7. List nurses." << endl;
-					cout << "8. Edit nurses duty roster." << endl;
-					cout << "9. Exit Program." << endl;
+					cout << "8. Exit Program." << endl;
 					cin >> answer;
 					if (answer == "1") {
 						listPatients();
@@ -69,18 +68,51 @@ int main() {
 						cout << "Which patient would you like to calculate the bill for?" << endl;
 						cin >> searchName;
 						search(searchName, output);
-						cout << (patientsArray[output]).name << "'s room number is " << (patientsArray[output]).getBill(); << endl << endl;
+						cout << (patientsArray[output]).name << "'s room number is " << (patientsArray[output]).getBill() << endl << endl;
 					}
 					else if (answer == "6") {
+						cout << "Please enter the first name of the patients whos information you would like to edit." << endl;
+						cin >> searchName;
+						search(searchName, output);
+						while (true) {
+							cout << "What would you like to do?" << endl;
+							cout << "1. Set age." << endl;
+							cout << "2. Set room number." << endl;
+							cout << "3. Set condition." << endl;
+							cout << "4. Set bloodtype." << endl;
+							cout << "5. Exit." << endl;
+						}
+						cin >> answer2;
+						if (answer2 == "1") {
+							cout << "What would you like to set it to?" << endl;
+							cin >> inputInt;
+							(patientsArray[output]).setAge(inputInt);
+							cout << (patientsArray[output]).name << "'s age is now set to " << inputInt << endl;
+						}
+						else if (answer2 == "2") {
+							cout << "What would you like to set it to?" << endl;
+							cin >> inputInt;
+							(patientsArray[output]).setRoomNum(inputInt);
+							cout << (patientsArray[output]).name << "'s room number is now set to " << inputInt << endl;
+						}
+						else if (answer2 == "3") {
+							cout << "What would you like to set it to?" << endl;
+							cin >> inputString;
+							(patientsArray[output]).setCondition(inputString);
+							cout << (patientsArray[output]).name << "'s condition is now set to " << inputString << endl;
+						}
+						else if (answer2 == "4") {
+							cout << "What would you like to set it to?" << endl;
+							cin >> inputString;
+							(patientsArray[output]).setBloodType(inputString);
+							cout << (patientsArray[output]).name << "'s bloodtype is now set to " << inputString << endl;
+						}
 
 					}
 					else if (answer == "7") {
 						listNurses();
 					}
 					else if (answer == "8") {
-
-					}
-					else if (answer == "9") {
 						break;
 					}
 					else {

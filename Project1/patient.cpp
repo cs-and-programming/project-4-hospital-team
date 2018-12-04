@@ -25,9 +25,13 @@ int patient::getroomNum()
 	return roomNum;
 }
 
-void patient::setBill(float billValue)
+void patient::setBill(int duration)//Note: This could be much better and likely more accurate without it being recursive but project requirements wanted it to be recursive.
 {
-	bill = billValue;
+	if (duration > 0) {
+		bill += 10000;
+		duration += -1;
+		setBill(duration);
+	}
 }
 
 float patient::getBill()

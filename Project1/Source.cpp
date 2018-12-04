@@ -3,24 +3,22 @@
 
 using namespace std;
 
-string passAttempt, answer, answer2, searchName, inputString;
+string passAttempt, answer, answer2, searchName, inputString, today;
 string staffPass = "pineapple";
-int patients = 6, output, inputInt;
-float billValue;
+int patients = 6, output, inputInt, todayInt;
 
 void listPatients(), listRoomPatients(), displayInformation(), listNurses();
-float bill();
 int search(string searchName, int &output);
 
 enum day {Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday};
 string nurses[3] = {"Jane","John","Doe"};
 
-patient Marcus = patient("Marcus", 18, 559, 999, "Testing", "AB+", 0);
-patient Noah = patient("Noah", 18, 558, 999, "Testing", "B-", 0);
-patient Colin = patient("Colin", 18, 289, 999, "Testing", "O-", 0);
-patient TJ = patient("TJ", 18, 101, 423, "Testing", "B+", 0);
-patient Krissy = patient("Krissy", 18, 321, 999, "Testing", "A+", 0);
-patient Shawn = patient("Shawn", 18, 127, 999, "Testing", "O+", 0);
+patient Marcus = patient("Marcus", 18, 559, 0, "Treatment", "AB+", 0);
+patient Noah = patient("Noah", 18, 558, 0, "Treatment", "B-", 0);
+patient Colin = patient("Colin", 18, 289, 0, "Testing", "O-", 0);
+patient TJ = patient("TJ", 18, 423, 0, "Treatment", "B+", 0);
+patient Krissy = patient("Krissy", 18, 321, 0, "Testing", "A+", 0);
+patient Shawn = patient("Shawn", 18, 127, 0, "Testing", "O+", 0);
 
 patient patientsArray[] = {Marcus,Noah,Colin,TJ,Krissy,Shawn};
 
@@ -65,10 +63,14 @@ int main() {
 						displayInformation();
 					}
 					else if (answer == "5") {
-						cout << "Which patient would you like to calculate the bill for?" << endl;
+						int duration;
+						cout << "Who's bill would you like to calculate?" << endl;
 						cin >> searchName;
 						search(searchName, output);
-						cout << (patientsArray[output]).name << "'s room number is " << (patientsArray[output]).getBill() << endl << endl;
+						cout << "How many days has " << (patientsArray[output]).name << " been here?" << endl << endl;
+						cin >> duration;
+						(patientsArray[output]).setBill(duration);
+						cout << (patientsArray[output]).getBill() << endl;
 					}
 					else if (answer == "6") {
 						cout << "Please enter the first name of the patients whos information you would like to edit." << endl;
@@ -186,17 +188,13 @@ void displayInformation() {
 	cout << "Age: " << (patientsArray[output]).getAge() << endl;
 	cout << "Condition: " << (patientsArray[output]).getCondition() << endl;
 	cout << "BloodType: " << (patientsArray[output]).getBloodType() << endl;
-	if ((patientsArray[output]).getBill() == 999) {
+	if ((patientsArray[output]).getBill() == 0) {
 		cout << "Current Bill: " << "*BILL NOT CALCULATED* Please run calculate bill command." << endl;
 	}
 	else {
 		cout << "Current Bill: " << (patientsArray[output]).getBill() << endl;
 	}
 	cout << endl;
-}
-
-float bill() {
-	return billValue;
 }
 
 int search(string searchName, int &output) {

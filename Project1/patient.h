@@ -21,7 +21,7 @@ public:
 	string getCondition();
 	string getBloodType();
 
-	void setBill(float billValue);
+	void setBill(int duration);
 	void setCurrentNurse(int inputInt);
 	void setRoomNum(int inputInt);
 	void setAge(int inputInt);
